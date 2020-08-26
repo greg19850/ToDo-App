@@ -1,1 +1,1 @@
-# Project ToDo App
+# Project ToDo list
