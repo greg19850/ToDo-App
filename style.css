@@ -7,8 +7,8 @@
 :root {
     --deep-dark: rgb(26, 26, 26);
     --light-dark: rgb(79, 82, 92);
-    --light-blue: rgb(0, 255, 119);
-    --dark-blue: rgb(2, 161, 42);
+    --light-green: rgb(0, 255, 119);
+    --dark-blue: rgb(2, 84, 161);
     --light: rgb(245, 245, 245);
 }
 
@@ -184,5 +184,5 @@ h1 {
 
 .popupBtn:hover {
     color: #fff;
-    background-color: var(--light-blue);
+    background-color: var(--light-green);
 }

@@ -50,10 +50,32 @@ const checkClick = (e) => {
     e.target.closest('li').remove();
 
     if (allTasks.length == 0) {
-      taskAlert.textContent = 'Brak zadań na liście.';
+      taskAlert.textContent = 'No available tasks.';
       taskAlert.style.color = 'rgb(2, 84, 161)';
     }
   }
+}
+
+
+//PopUp Control
+const editTask = (e) => {
+  popUp.style.display = 'flex';
+  const taskId = e.target.closest('li').id;
+  taskToEdit = document.getElementById(taskId);
+  taskInput.value = taskToEdit.firstChild.textContent;
+
+  acceptBtn.addEventListener('click', function() {
+    if (taskInput.value !== '') {
+      popUpInfo.textContent = '';
+      taskToEdit.firstChild.textContent = taskInput.value;
+      popUp.style.display = 'none';
+    } else {
+      popUpInfo.textContent = 'Wpisz treść zadania!'
+    }
+  })
+  cancelBtn.addEventListener('click', function() {
+    popUp.style.display = 'none'
+  })
 }
 
 //adding new tasks to list
