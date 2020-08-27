@@ -37,6 +37,24 @@ const createToolsArea = () => {
   toolsPanel.appendChild(deleteBtn);
 }
 
+//complete/edit/delete control
+const checkClick = (e) => {
+  if (e.target.closest('button').classList.contains('complete')) {
+    e.target.closest('li').classList.toggle('completed');
+    e.target.closest('button').classList.toggle('completed');
+  } else if (e.target.classList.contains('edit')) {
+    const popUp = document.querySelector('.popup');
+    popUp.style.display = 'block';
+    editTask(e)
+  } else if (e.target.closest('button').classList.contains('delete')) {
+    e.target.closest('li').remove();
+
+    if (allTasks.length == 0) {
+      taskAlert.textContent = 'Brak zadań na liście.';
+      taskAlert.style.color = 'rgb(2, 84, 161)';
+    }
+  }
+}
 
 //adding new tasks to list
 const addNewTask = () => {
@@ -58,3 +76,4 @@ const addNewTask = () => {
 }
 
 addBtn.addEventListener('click', addNewTask);
+ul.addEventListener('click', checkClick);
